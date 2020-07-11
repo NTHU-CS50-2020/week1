@@ -5,8 +5,8 @@
 void cal(int *money, int *change, int coin)
 {
     int tmp = *money / coin;
-    *money = *money - tmp * coin;
-    *change = *change + tmp;
+    *money -= tmp * coin;
+    *change += tmp;
 }
 
 int main(void)
