@@ -31,20 +31,20 @@ int main(void)
 	    long c = get_long("Number: ");
 	    d=c;
 	
-	 	int count=0;        //有幾個位數
+	    int count=0;        //有幾個位數
 	    while (c!= 0) 
 	    {
 	        c/= 10;     // n = n/10
 	        count++;
 	    };
 	    
-	    bool t=Algorithm(c);       //不能+是甚麼東西
+	    bool t=Algorithm(c);       //不能+是甚麼
 	    if(t){
 	    switch(count)
 	    {
 	    case 15:
-	 		if(d / 10000000000000 == 34 || d / 10000000000000 == 37) 
-			 {printf("American Express\n");	break;	 }      //不寫break的話會一直往下跑                        
+	 	if(d / 10000000000000 == 34 || d / 10000000000000 == 37) 
+		{printf("American Express\n");	break;	 }      //不寫break的話會一直往下跑                        
 	    case 16:
 	        if(d / 100000000000000 >= 51 && d / 100000000000000 <= 55) 
 			{printf("MasterCard\n");	break;	 } 
