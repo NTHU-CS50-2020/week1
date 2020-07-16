@@ -1,0 +1,87 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <unistd.h>
+
+long power(int a,int b);
+
+int main(void)
+{
+    long number;
+    long countodd=0;
+    long counteven=0;
+    
+    //long k = power(10,13);
+    //printf("%li\n", k);
+    
+    do
+    {
+        number = get_long("number: \n");
+        
+    }
+    while((number < power(10,12)) || (number > power(10,16)));
+    
+    //odd number total
+    for(int i = 0;i < 8;i ++)
+    {
+        long oddnumber = (number/(power(10,(2*i))))%10;
+        countodd = countodd + oddnumber; 
+        //printf("%li\n", countodd);
+        //sleep(1);
+    }
+    
+    //even number total
+    for(int i = 0;i < 8;i ++)
+    {
+        long evennumber = (number/(power(10,(2*i+1))))%10;
+        long doubleeven = evennumber*2;
+        long doubleeven1 = doubleeven%10;
+        long doubleeven2 = (doubleeven/10)%10;
+        counteven = counteven + doubleeven1 + doubleeven2;
+        //printf("%li\n", counteven);
+        //sleep(1);
+    }
+    
+    long check = counteven + countodd;
+    
+    //printf("%li\n", check);
+    
+    if(check%10 == 0)
+    {
+        printf("check\n");
+        if((number/power(10,14))%10 == 3)
+        {
+            printf("AMEX\n");
+        }
+        else if((number/power(10,15))%10 == 5)
+        {
+            printf("MASTERCARD\n");
+        }
+        else if((number/power(10,15))%10 == 4 || (number/power(10,12))%10 == 4)
+        {
+            printf("VISA\n");
+        }
+        else
+        {
+           printf("INVALID\n");
+        }
+    
+    }
+    else
+    {
+        printf("INVALID\n");
+    }
+    
+}
+
+
+long power(int a,int b)
+{
+    long x=1;
+    for(int n=0;n<b;n++)
+    {
+         x = x*a;
+         //printf("%li\n", x);
+         //sleep(1);
+    }
+    return x;
+}
