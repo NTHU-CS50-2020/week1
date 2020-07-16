@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <unistd.h>
+
+int main(void)
+{
+   float dollar;
+   int cent;
+   do
+   {
+       dollar = get_float("change owed: \n");
+       cent = dollar*100;
+   }
+   while(cent%1 != 0 || cent < 1);
+   
+   int a;
+   int b;
+   int c;
+   int d;
+   
+   int A;
+   int B;
+   int C;
+   int D;
+   
+   a = cent/25;
+   A = cent%25;
+   
+   b = A/10;
+   B = A%10;
+    
+   c = B/5;
+   C = B%5;
+   
+   d = C/1;
+   D = C%1;
+   
+   printf("%i\n", a+b+c+d);
+
+}
